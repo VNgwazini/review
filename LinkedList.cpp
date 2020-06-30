@@ -48,6 +48,16 @@ class LinkedList
             }
             return NULL;
         }
+        void insertAt(int key, int id, char name[])
+        {
+            struct Node *itr = find(key);
+            struct Node *temp = makeNode(id, name);
+            temp->next = itr->next;
+            temp->prev = itr;
+            itr->next->prev = temp;
+            itr->next = temp;
+            itr = temp;
+        }
         void remove(int id)
         {
             struct Node *itr = find(id);
@@ -84,6 +94,9 @@ int main()
     listy.print(listy.root);
     listy.remove(3);
     listy.print(listy.root);
+    listy.insertAt(2,3, "Nchima");
+    listy.print(listy.root);
+
 
 
     
