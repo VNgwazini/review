@@ -1,9 +1,11 @@
 #include <iostream>
 #include <string.h>
 
-class LinkedList{
+class LinkedList
+{
     private:
-        struct Node{
+        struct Node
+        {
             public:
                 int id;
                 char name[25];
@@ -11,7 +13,9 @@ class LinkedList{
         };
     public:
         struct Node *root = NULL;
-        struct Node *makeNode(int id, char name[]){
+
+        struct Node *makeNode(int id, char name[])
+        {
             struct Node *temp = new Node;
             temp->id = id;
             strcpy(temp->name, name);
@@ -19,15 +23,42 @@ class LinkedList{
             temp->prev = NULL;
             
         }
-        void addFront(struct Node *aNode, int id, char name[]){
-            if(root == NULL){
+        void addFront(struct Node *aNode, int id, char name[])
+        {
+            if(root == NULL)
+            {
                 root = makeNode(id, name);
             }
             aNode = makeNode(id, name);
             aNode->next = root;
+            root->prev = aNode;
             root = aNode;
         }
-        void print(struct Node *aNode){
+        struct Node *find(int id)
+        {
+            struct Node *itr = root;
+            while(itr != NULL){
+                if(itr->id == id){
+                    std::cout << "Found: " << itr->id << std::endl;
+                    return itr;
+                }
+                else{
+                    itr = itr->next;
+                }
+            }
+            return NULL;
+        }
+        void remove(int id)
+        {
+            struct Node *itr = find(id);
+            if(itr != NULL){
+                itr->prev->next = itr->next;
+                itr->next->prev = itr->prev;
+                delete itr;
+            }
+        }
+        void print(struct Node *aNode)
+        {
             if(aNode == NULL){
                 std::cout << "Empty!!!" << std::endl;
                 return;
@@ -41,7 +72,8 @@ class LinkedList{
         }
 };
 
-int main(){
+int main()
+{
     LinkedList listy;
     listy.addFront(NULL, 5, "Vusa");
     listy.addFront(NULL, 4, "Madi");
@@ -50,6 +82,11 @@ int main(){
     listy.addFront(NULL, 1, "Kwame");
 
     listy.print(listy.root);
+    listy.remove(3);
+    listy.print(listy.root);
+
+
+    
 
 
     return 0;
