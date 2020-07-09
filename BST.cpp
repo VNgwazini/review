@@ -132,11 +132,11 @@ int main()
     BST tree;
     tree.insert(tree.root, 35, "Jesus Christ");
     tree.insert(tree.root, 30, "Vusumuzi Ngwazini");
-    tree.insert(tree.root, 20, "Madison Ngwazini");
-    tree.insert(tree.root, 10, "Nchima Chongwe");
-    tree.insert(tree.root, 40, "Kwame Amponsah");
-    tree.insert(tree.root, 50, "Malvin Chali");
-    tree.insert(tree.root, 60, "Christine Ngwazini");
+    tree.insert(tree.root, 20, "Magic Johnson");
+    tree.insert(tree.root, 10, "Lebron James");
+    tree.insert(tree.root, 40, "Larry Bird");
+    tree.insert(tree.root, 50, "Micheal Jordan");
+    tree.insert(tree.root, 60, "Shaquille O'Neal");
     tree.print(tree.root);
     std::cout << "End of list!!\n";
     std::cout << "Minimum is: " << tree.findMin(tree.root)->id << ", " << tree.findMin(tree.root)->name << std::endl;
