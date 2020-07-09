@@ -85,16 +85,16 @@ class LinkedList
 int main()
 {
     LinkedList listy;
-    listy.addFront(NULL, 5, "Vusa");
-    listy.addFront(NULL, 4, "Madi");
-    listy.addFront(NULL, 3, "Nchima");
-    listy.addFront(NULL, 2, "Malvin");
-    listy.addFront(NULL, 1, "Kwame");
+    listy.addFront(NULL, 5, "Magic");
+    listy.addFront(NULL, 4, "Kobe");
+    listy.addFront(NULL, 3, "Lebron");
+    listy.addFront(NULL, 2, "Larry");
+    listy.addFront(NULL, 1, "Micheal");
 
     listy.print(listy.root);
     listy.remove(3);
     listy.print(listy.root);
-    listy.insertAt(2,3, "Nchima");
+    listy.insertAt(2,3, "Shaq");
     listy.print(listy.root);
 
 
